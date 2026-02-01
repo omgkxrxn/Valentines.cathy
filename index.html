@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Valentine’s Catherine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at top, #1b1f3b 0%, #05050f 70%);
+  color: #fff; overflow: hidden;
+  font-family: 'Segoe UI', 'Poppins', sans-serif;
+  position: relative;
+}
+
+.screen {
+  display: none; text-align: center;
+  padding: 7vh 6vw; min-height: 100vh;
+}
+
+.screen.active { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+h1,h2 { text-shadow:0 0 16px rgba(255,79,154,0.3); line-height:1.2; }
+h1 { font-size: clamp(34px, 7vw, 50px); }
+h2 { font-size: clamp(28px, 6vw, 42px); }
+
+p {
+  font-size: clamp(18px, 4.5vw, 21px);
+  line-height: 2.1; max-width:760px; margin:22px auto; color:#f1f1f1;
+  text-shadow: 0 0 8px rgba(255,79,154,0.2);
+}
+
+button { padding:16px 42px; font-size:18px; border-radius:50px; border:none; cursor:pointer; margin:18px; transition: transform .2s ease, box-shadow .2s ease;}
+button:hover { transform: scale(1.07); box-shadow:0 0 20px rgba(255,79,154,0.5);}
+.yes { background: linear-gradient(135deg,#ff4f9a,#ff7bbd); color:#fff; }
+.no { background:#444; color:#fff; position:absolute; }
+
+.stitch { width:160px; margin-bottom:26px; animation: float 3.2s ease-in-out infinite; }
+@keyframes float { 0%{transform:translateY(0);}50%{transform:translateY(-16px);}100%{transform:translateY(0);} }
+
+.note { position:absolute; background: rgba(255,79,154,0.22); padding:12px 16px; border-radius:18px; font-size:15px; animation: floatUp 9s linear forwards; backdrop-filter:blur(6px); }
+@keyframes floatUp { from{transform:translateY(0);opacity:1;} to{transform:translateY(-320px);opacity:0;} }
+
+.heart { position:absolute; font-size:26px; animation: rise 4.5s linear forwards; }
+@keyframes rise { from{transform:translateY(0);opacity:1;} to{transform:translateY(-360px);opacity:0;} }
+
+.firework { position:absolute; width:6px;height:6px;background:pink;border-radius:50%;animation:explode 1.4s ease-out forwards; }
+@keyframes explode { from{transform:scale(1);opacity:1;} to{transform:scale(16);opacity:0;} }
+
+@keyframes yesGlow { 0%{box-shadow:inset 0 0 0 rgba(255,79,154,0);}50%{box-shadow:inset 0 0 120px rgba(255,79,154,0.15);}100%{box-shadow:inset 0 0 0 rgba(255,79,154,0);} }
+.pulse { animation:pulse 2.2s ease-in-out infinite; }
+
+#proof { margin-top:20px; font-size:16px; color:#ffb6c1; text-shadow:0 0 8px #ff4f9a; text-align:center; }
+#from { font-size:14px; color:#fdd; margin-top:10px; text-align:center; }
+
+#loveAnimationContainer { width:300px; height:300px; display:none; position:absolute; bottom:50px; left:50%; transform:translateX(-50%); z-index:999; }
+</style>
+</head>
+
+<body>
+
+<script>
+  // PASSWORD PROMPT
+  const password = "ILOVEYOU";
+  let input = prompt("Hey! To see this Valentine’s surprise, enter the secret word 💖:");
+  if(input !== password){
+    alert("Oops! Wrong word 😅 Try again later!");
+    document.body.innerHTML = "<h1 style='text-align:center;margin-top:50vh;color:#ff4f9a;'>Access Denied 💔</h1>";
+  }
+</script>
+
+<audio id="music" loop preload="auto">
+  <source src="cant-help-falling-in-love.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<!-- SCREENS -->
+<div class="screen active" id="s1">
+  <img class="stitch" src="https://media.tenor.com/5bYkY6jz8zAAAAAi/stitch-wave.gif">
+  <h1>Hey Catherine 🌙</h1>
+  <p>From the very first moment you stepped into my life, I felt a warmth that words cannot describe. Every smile, every laugh, every glance you give me, turns ordinary moments into something magical. This Valentine’s is not just a day; it’s a celebration of how much brighter life feels with you around. I made this just for you, to show you a fraction of how much you mean to me.</p>
+  <button class="yes" onclick="next(1)">Tap to begin 💫</button>
+</div>
+
+<div class="screen" id="s2">
+  <h1>Happy Valentine’s Day 💖</h1>
+  <p>Valentine’s Day is about love, care, and moments that make the heart beat faster. But with you, every day feels like Valentine’s. The way you light up a room, the way you make everything feel alive, it’s a gift I cherish deeply. Today, I want to honor all the little and big ways you’ve made life sweeter just by being yourself.</p>
+  <button class="yes" onclick="next(2)">Keep going ✨</button>
+</div>
+
+<div class="screen" id="s3">
+  <h2>Before I ask…</h2>
+  <p>I want you to know, Catherine, that you are appreciated in ways you may not even realize. You bring light into my life, joy into my thoughts, and warmth into my heart. Just by being you, you make everything brighter, softer, and infinitely better. This moment, this message, this tiny world I created for you, is all for you to feel how special you truly are.</p>
+  <button class="yes" onclick="next(3)">One more thing 💌</button>
+</div>
+
+<div class="screen" id="s4">
+  <h2>Some reasons 💕</h2>
+  <p>Every reason I love you feels like a star floating above, shining uniquely. Your smile, your laughter, your kindness, your gentle heart, and everything that makes you so incredibly you, they all drift like notes in the air, reminding me daily why you are so special. Let these floating little reminders tell you, silently, how deeply you are loved and cherished.</p>
+  <button class="yes" onclick="next(4)">I’m ready 💖</button>
+</div>
+
+<div class="screen" id="s5">
+  <h2>Catherine… 💘</h2>
+  <p>I’ve held these words in my heart for a long time, and now I am asking honestly and openly. This is not a fleeting question but a genuine moment from my heart to yours. </p>
+  <h1>Will you be my Valentine?</h1>
+  <button class="yes" onclick="yes()">YES 💖</button>
+  <button class="no" id="no" onmouseover="runNo()">NO 🙃</button>
+</div>
+
+<div class="screen" id="s6">
+  <h1 class="pulse">This is just the beginning… 💞</h1>
+  <p>Whatever comes next — laughter, quiet moments, shared adventures, or silly little jokes — I am grateful that it begins here. You didn’t just press a button, you chose a moment. A moment that I will remember forever. The fact that you said YES fills my heart in a way words cannot fully capture.</p>
+  <p>Every glance, every smile, every shared heartbeat counts. I hope you feel just a fraction of how special you are to me through this message, this screen, and this little universe I created for you. 💖</p>
+  <button class="yes pulse" onclick="love()">LOVE ❤️</button>
+  <div id="proof"></div>
+  <div id="from">This is from TRISHEEL KARAN to Catherine 💖<br>Take a screenshot to save this moment!</div>
+</div>
+
+<div id="loveAnimationContainer"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+<script>
+const reasons = ["Your smile","Your laugh","Your kindness","Your warmth","Your honesty","Your energy","Your eyes","Your heart","Your presence","Your patience","Your strength","Your sweetness","Your care","Your vibe","Your magic","The way you listen","The way you exist","Your soul","Just you 💖","Everything"];
+
+function next(n){
+  if(n===1){ const music=document.getElementById("music"); music.volume=0.6; music.play().catch(()=>{}); }
+  document.getElementById("s"+n).classList.remove("active");
+  document.getElementById("s"+(n+1)).classList.add("active");
+  if(n===3){ for(let i=0;i<30;i++) setTimeout(note,i*220); }
+}
+
+function note(){
+  const d=document.createElement("div");
+  d.className="note"; d.innerText=reasons[Math.floor(Math.random()*reasons.length)];
+  d.style.left=Math.random()*(window.innerWidth-120)+"px"; d.style.bottom="0px";
+  document.body.appendChild(d); setTimeout(()=>d.remove(),9000);
+}
+
+function runNo(){
+  const b=document.getElementById("no");
+  b.style.left=Math.random()*(window.innerWidth-120)+"px";
+  b.style.top=Math.random()*(window.innerHeight-120)+"px";
+}
+
+function yes(){
+  const ask=document.getElementById("s5");
+  const final=document.getElementById("s6");
+  ask.classList.remove("active");
+  final.classList.add("active");
+  document.body.style.animation="yesGlow 2.5s ease-in-out infinite";
+
+  for(let i=0;i<50;i++) setTimeout(note,i*180);
+  for(let i=0;i<60;i++) setTimeout(heart,i*90);
+  for(let i=0;i<36;i++) setTimeout(fireworks,i*50);
+
+  const timestamp = new Date().toLocaleString();
+  localStorage.setItem("valentine_yes_pressed", JSON.stringify({name:"TRISHEEL KARAN", time:timestamp}));
+  document.getElementById("proof").innerText = `YES pressed on ${timestamp} 💖`;
+}
+
+function heart(){ const h=document.createElement("div"); h.className="heart"; h.innerText="💖"; h.style.left=Math.random()*window.innerWidth+"px"; h.style.bottom="0px"; document.body.appendChild(h); setTimeout(()=>h.remove(),4500);}
+function fireworks(){ for(let i=0;i<36;i++){ const f=document.createElement("div"); f.className="firework"; f.style.left=Math.random()*window.innerWidth+"px"; f.style.top=Math.random()*window.innerHeight+"px"; document.body.appendChild(f); setTimeout(()=>f.remove(),1400);} }
+
+function love(){
+  for(let i=0;i<120;i++) setTimeout(heart,i*50);
+  for(let i=0;i<3;i++) setTimeout(fireworks,i*800);
+  setTimeout(()=>{for(let i=0;i<20;i++) setTimeout(note,i*200)},1000);
+
+  const container = document.getElementById("loveAnimationContainer");
+  container.style.display = "block";
+
+  lottie.loadAnimation({
+    container: container,
+    renderer: 'svg',
+    loop: false,
+    autoplay: true,
+    path: 'Proposal.lottie.json' // Replace with your Lottie JSON URL
+  });
+}
+</script>
+
+</body>
+</html>
+
